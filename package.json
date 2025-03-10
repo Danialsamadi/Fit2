@@ -11,8 +11,7 @@
     "install-backend": "cd backend && npm install",
     "install-frontend": "cd frontend && npm install",
     "install-all": "npm install && npm run install-backend && npm run install-frontend",
-    "build": "cd frontend && npm install && npm run build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-frontend && npm run build"
+    "build": "npm install && npm run build",
   },
   "keywords": [
     "workout",
