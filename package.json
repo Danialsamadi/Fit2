@@ -11,7 +11,7 @@
     "install-backend": "cd backend && npm install",
     "install-frontend": "cd frontend && npm install",
     "install-all": "npm install && npm run install-backend && npm run install-frontend",
-    "build": "npm install && npm run build"
+    "build": "cd frontend && npm install && npm run build"
   },
   "keywords": [
     "workout",
