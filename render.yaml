@@ -1,1 +1,38 @@
- 
+services:
+  - type: web
+    name: fit2
+    env: node
+    plan: free
+    buildCommand: npm install && npm run install-backend && cd frontend && npm install && CI=false npm run build:react
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5001
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_HOST
+        fromDatabase:
+          name: fit2-db
+          property: host
+      - key: DB_NAME
+        fromDatabase:
+          name: fit2-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: fit2-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: fit2-db
+          property: password
+      - key: DB_PORT
+        fromDatabase:
+          name: fit2-db
+          property: port
+
+databases:
+  - name: fit2-db
+    plan: free 
